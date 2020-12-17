@@ -1,3 +1,59 @@
+
+#### *Below is the update note of 17 December 2020 and the memo of 30 March 2020.This is also available as pdf files in English and Norwegian within this repository.*  
+
+
+***
+
+***
+
+Below is an update note (originally in Norwegian) with recommendations for the statistical units in Statistics Norway compiled by a corona time series working group within division for methodology. The working group is set up by Xeni Dimakos (head of division) and consists of Øyvind Langsrud, Ane Seierstad, Jørn Ivar Hamre, Xiaoming Jansen and Dinh Pham. This document is available at https://github.com/statisticsnorway/SeasonalAdjustmentCorona 
+
+### Statistics Norway - Division for methods - 17 December 2020
+
+# Seasonal adjustment during the Corona crisis – continuation in 2021
+
+
+### Background
+The memo of 30 March 2020 gave recommendations on special seasonal adjustments during the crisis. One of the points in the memo was “How long will the crisis last?” with subsequent text “No one knows how long the situation we are in will last, or what effect it will have on Statistics Norway's statistics. The methods outlined in this memo will be able to handle the impact of data until the new year 2020/2021. This gives us plenty of time to re-evaluate the plans or establish alternative methods”.
+In practice, the outlier method was chosen for most series in Statistics Norway.
+We are now approaching the New Year and it is therefore time for an update.
+Below we go straight to the point and mention the strategy for 2021 and afterwards some more discussions.
+
+### Each observation as outlier continues in 2021
+The strategy is as follows:
+
+* Treat each observation as outlier at least until February – that is one year.
+* And continue to treat each observation as an outlier if not
+  * Large movements in the seasonal pattern by the outlier strategy has been detected.
+  *  Or if, after very careful assessments, one can conclude that a series is not affected by the corona crisis at all.
+The alternative to outliers will require much more effort. The strategy with outliers can, if necessary, last throughout 2021. 
+
+### Three variations of seasonal adjustment
+For the sake of discussion, we now include an additional variant as the first point. 
+
+* **Constant seasonal factors**
+The calendar factors take into account the new calendar in new years, but are otherwise based on fixed parameter estimates. The seasonal factors are kept completely fixed from year to year. This method is not straightforwardly available in X13-ARIMA.
+
+* **Forecasted seasonal factors**
+A more precise term is “forecasted calendar and seasonal factors”. This is a common seasonal adjustment method. The difference from the method above is that it takes into account that the seasonal pattern changes slightly over time. The forecast for the seasonal pattern for 2021 will be slightly different from the forecast for 2020. The program X13-ARIMA can provide forecasted factors three years ahead.
+
+* **Continuous updating with outliers**
+For each new observation, the seasonal pattern is updated. This is the most common method in Statistics Norway. Outliers in the crisis period ensure that the real observations do not affect the seasonal pattern. Fitted values from modelling based on other observations are used instead. Due to the algorithm in X13-ARIMA, the seasonal pattern obtained in this way is not exactly the same as the forecasted seasonal factors.
+
+### Discussion
+Time series forecasts far ahead are uncertain. If the dynamics modelled correspond to reality, such modelling can be useful. Constant seasonal factors, on the other hand, are a safer and easier choice. Such a method can in theory be used for all time to come. We then say that the seasonal pattern as it was in 2019 is what applies. But constant seasonal factors are not what the program gives us.
+Forecasted seasonal factors one year ahead are considered a good seasonal adjustment method. Outliers for one year give in practice about the same result as forecasted factors. For each time series it is possible to compare to see how big the difference is.
+When we enter special treatments for the second year, there are many comparisons that can be made. If the seasonal pattern for the second year (2021) is especially different from the seasonal pattern for the first year (2020), then there is reason to be sceptical. If there are substantial differences, then other approaches should be considered. A method other than outlier treatment, will, however, require more effort. Forecasted seasonal factors are an option. A more manual programming of the seasonal pattern is also possible.
+
+Contact Øyvind Langsrud (oyl at ssb.no) for questions and suggestions.
+
+
+
+***
+
+***
+
+
 Below is a memo (originally in Norwegian) with recommendations for the statistical units in Statistics Norway compiled by a corona time series working group within division for methodology. The working group is set up by Xeni Dimakos (head of division) and consists of Øyvind Langsrud, Ane Seierstad, Jørn Ivar Hamre, Xiaoming Jansen and Dinh Pham.
 
 
