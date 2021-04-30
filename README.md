@@ -1,6 +1,5 @@
 
-#### *Below is the update note of 17 December 2020 and the memo of 30 March 2020.This is also available as pdf files in English and Norwegian within this repository. 
-See also the [notice about new old outliers](https://github.com/statisticsnorway/SeasonalAdjustmentCorona/blob/master/New_old_outliers_side_effect.md) of 14 April 2021.*  
+#### *Below is the update note of 17 December 2020 and the memo of 30 March 2020.This is also available as pdf files in English and Norwegian within this repository. See also the [notice about new old outliers](https://github.com/statisticsnorway/SeasonalAdjustmentCorona/blob/master/New_old_outliers_side_effect.md) of 14 April 2021.*  
 
 
 ***
