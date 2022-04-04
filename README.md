@@ -1,10 +1,85 @@
 
-#### *Below is the update note of 17 December 2020 and the memo of 30 March 2020.This is also available as pdf files in English and Norwegian within this repository. See also the [notice about new old outliers](https://github.com/statisticsnorway/SeasonalAdjustmentCorona/blob/master/New_old_outliers_side_effect.md) of 14 April 2021.*  
+#### *Below is the note about last corona outlier of 15 March 2022,  the update note of 17 December 2020 and the memo of 30 March 2020.This is also available as pdf files in English and Norwegian within this repository. See also the [notice about new old outliers](https://github.com/statisticsnorway/SeasonalAdjustmentCorona/blob/master/New_old_outliers_side_effect.md) of 14 April 2021.*  
 
 
 ***
 
 ***
+
+
+Below is an abbreviated and translated note, originally in Norwegian, with recommendations for the statistical units in Statistics Norway compiled by a corona time series working group within division for methodology. This document is available at https://github.com/statisticsnorway/SeasonalAdjustmentCorona 
+
+
+
+### Statistics Norway - Division for methods - 15 March 2022
+
+# Seasonal adjustment during the Corona crisis – March or 1st quarter 2022 will be the last outlier
+
+### Background
+
+The memo of 30 March 2020 gave recommendations on special seasonal adjustments during the crisis for Norwegian statistics. Later, 17 December 2020, a new memo pointed out that continuous updating with outliers continues in 2021. 
+
+Now it's finally time to end special handling of seasonal adjustments. Below is more information.
+
+The Norwegian government introduced strict national COVID-19 measures from around mid-March 2020. After a while there were some easing of the restrictions. First in September 2021, they decided that Norway will move to a normal everyday life with increased preparedness. Due to the Omicron variant of the coronavirus (COVID-19) a second period of strict national COVID-19 measures was imposed from December 2021 to mid-February 2022.
+
+Note in particular that we, for outlier detection, recommend that fixed critical t-value limits be used.
+
+###  March or 1st quarter 2022 will be the last outlier
+We assume that the chosen method is continuous updating with outliers. Then the last month to have a corona outlier is the first month that is considered normal. This will ensure that the trend after the crisis period has the right starting point. 
+
+When the April figure is in place, it is important that the March outlier is converted to level shift (LS) if an additive outlier (AO) was specified. 
+
+For quarterly statistics, the recommendation is that the first quarter of 2022 will be the last quarter with a corona outlier. When the second quarter of 2022 is in place, the first quarter of 2022 must be converted to LS if AO was specified.
+
+The reason for the choice of March is that we assume that March is a completely normal month. Strictly speaking, a similar assessment would lead to the second quarter of 2022 also becoming an outlier (first completely normal quarter). But the recommendation is a little different after considering the pros and cons. 
+
+This is a common recommendation. More outliers can be added if knowledge indicates this.
+
+### More details
+
+#### Trend throughout the corona period
+
+Calculation of trend has ceased during the corona period. If a trend was desired, the solution was to use level shifts for all outliers so that the trend and the seasonally adjusted figures coincided. Better trend estimates can subsequently be achieved with a re-modeling of the entire corona period, including the seasonal adjustment. If this is to be done, it is better to wait with such modeling until more observations are in place.
+
+A simpler approach is to keep seasonally adjusted figures and rather find a trend by smoothing the seasonally adjusted figures afterwards. E.g. by moving average (3 or 5 months) or another smoothing filter.
+
+#### Other seasonal pattern after the corona period?
+
+Seasonal adjustment is about correcting for a known seasonal pattern. If the seasonal pattern is not known, then we cannot perform seasonal adjustment. We need to take a break, at least three years,  from the seasonal adjustment. 
+
+On the other hand, gradual changes in the seasonal pattern are built into the seasonal adjustment method. A season filter is automatically selected based on the length and properties of the series. The shorter the filter, the more abrupt changes in the seasonal pattern are handled.
+
+If a series that has had a stable seasonal pattern has a relatively abrupt change after the corona period, it may mean that the automation will eventually change the filter length. But it may take two years before the information is clear enough for the automation to change.
+
+If you are sure that there are bigger changes in the seasonal pattern than before, it is possible to stay ahead. The automation can be overridden in the sense that seasonal filters can be specified manually, e.g. by, `x11{seasonalma = S3X3}`, so that a short  filter is selected. Overall, a manual control of the seasonal filter can give less revision than otherwise, provided that the assumption that a relatively big change in the seasonal pattern is correct. The easiest way is to continue without such override and in many cases it will also be best.
+
+#### Outlier detection and t-value error
+
+When it comes to outliers other than corona outliers, the best practice is to freeze old outliers and only look for new ones at the end of the series (last year). This practice is only to some extent implemented in Statistics Norway. After the corona period, there is a good opportunity to make such change. Any outliers before the corona should be held fixed. 
+
+At the same time, we recommend setting a fixed critical detection limit.
+
+* In the **X-13ARIMA-SEATS: 4.25** or **4.00** for monthly and quarterly series, respectively. 
+* In **JDemetra+: 4.00** or **3.75** for monthly and quarterly series, respectively
+
+The reason why these critical limits are recommended is twofold.
+
+*	The automatic critical limit depends on the number of observations considered. This means very low limits for short spans. Although the hypothesis testing theory behind this is correct, the actual consequence is that the outlier threshold is lowered enormously by fixing outliers. This is something we do not recommend. Automatic change of detection limit can also lead to revisions. For long series, the usual detection limit are approx. 4.00 or 3.75 for monthly and quarterly series, respectively.
+*	We have previously (April 14, 2021) pointed out that an error in the X-13ARIMA-SEATS program causes a systematic error in t-values when we have corona outliers. This results in a lower threshold for automatic outliers, especially for short time series. It is possible to give specific calculations for this. A simplification is to introduce a rule of thumb that the limit should be increased by 0.25 so that the recommendation is 4.25 or 4.00.
+
+For JDemetra+, how much consequence this recommendation has in practice is actually a bit unclear. There is a mismatch between what the documentation says (that the limit depends on the span length) and what the program actually does. 
+
+If freezing of outliers and outlier spans are not used, we still recommend using fixed critical limits. This is especially recommended when using X-13ARIMA-SEATS due to the systematic error.
+
+Contact Øyvind Langsrud (oyl@ssb.no) for questions and suggestions.
+
+
+
+***
+
+***
+
 
 Below is an update note (originally in Norwegian) with recommendations for the statistical units in Statistics Norway compiled by a corona time series working group within division for methodology. The working group is set up by Xeni Dimakos (head of division) and consists of Øyvind Langsrud, Ane Seierstad, Jørn Ivar Hamre, Xiaoming Jansen and Dinh Pham. This document is available at https://github.com/statisticsnorway/SeasonalAdjustmentCorona 
 
